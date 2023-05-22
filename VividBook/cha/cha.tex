@@ -1,0 +1,878 @@
+\chapter{VividBook模板内容介绍}
+\begin{center}
+    \textcolor[RGB]{255, 0, 0}{\faHeart}我记得她很容易哭鼻子,记得她喜欢聊以前的事.记得她在信纸上为我写的每个字,却再也没有见过她一次.\textcolor[RGB]{255, 0, 0}{\faHeart}
+\end{center}
+\rightline{——《未闻花名》}
+\vspace{-5pt}
+\begin{center}
+    \pgfornament[width=0.36\linewidth,color=lsp]{88}
+\end{center}
+
+\section{模板历史概述}
+2019年5月10日左右,在\href{latexstudio论坛}{www.latexstudio.net}看见了
+\href{https://www.latexstudio.net/archives/10715.html}{LaTeX排版的《热力学与统计物理导论》},该排版作品由超理汉化组制作的,模板应源自于\href{http://www.latextemplates.com/template/the-legrand-orange-book}{《The Legrand Orange Book》},这本书模板具有优雅的布局，带有漂亮的标题页和部分/章节标题。后面遇见了\href{https://elegantlatex.org/}{Elegant\LaTeX{} 系列模板},ElegantLATEX 项目组致力于打造一系列美观、优雅、简便的模板方便用户使用。目前由
+ElegantNote，ElegantBook，ElegantPaper 组成，分别用于排版笔记，书籍和工作论文。该模板提供了优秀的封面设计,目录设计,及各种定制化的盒子,颜色丰富。
+
+自此开始将两个模板进行魔改,主要是将《The Legrand Orange Book》该模板上章节封面设计,目录设计等内容,移植到ElegantBook上,2022年1月4日该魔改模板以上传到\href{latexstudio论坛}{www.latexstudio.net}上.至此第一个版本version2.1诞生。而后由于种种原因,具体可见模板历史,VividBook系列模板诞生,目前模板仅在QQ群中开放测试!
+
+VividBook是一个灵感源自于"ElegantBook"的LATEX书籍模板，它旨在为用户提供一个生动、活泼的文档撰写体验。该模板充满了丰富多彩的二次元插图，以动漫风格为特色，为读者带来独特而有趣的阅读感受。
+
+VividBook的设计注重精美与质感，旨在打造一本令人愉悦的书籍。其优雅的排版和精细的细节使得每一页都充满活力和生机。您可以通过VividBook模板轻松创建自己的漂亮书籍，无论是学术论文、技术手册还是创意作品集，都能以生动的方式呈现。
+
+VividBook的特点包括：
+\begin{itemize}
+\item 生动的插图：大量的二次元插图，展现出丰富多彩的动漫风格，为内容增添活力。
+
+\item 优雅的排版：精心设计的版式，注重细节和质感，提供舒适的阅读体验。
+
+\item 灵活的定制：模板提供了丰富的定制选项，您可以根据自己的需求进行个性化设置。
+
+\item 完善的文档类：基于LATEX技术构建，提供了丰富的功能和强大的排版能力，使您能够专注于内容创作。
+\end{itemize}
+无论您是想创建一本漫画指南、插图小说、动漫教程或其他二次元风格的书籍，VividBook都将是您的理想选择。让您的作品以生动的方式跃然纸上，吸引读者的目光！
+
+\newpage
+
+\section{模板内容介绍-数学环境}
+这里,在\href{https://elegantlatex.org/}{Elegant\LaTeX{} 系列模板}原先的数学环境基础上,增加了一些新的环境.具体内容如下:
+
+\subsection{抄录环境}
+抄录环境主要用的\md{tcolorbox}宏包实现,主要用于代码抄录以及代码的显示.两个简单的示例如下:
+
+\begin{tcblisting}{sidebyside}
+\begin{align}
+    \max_nf(n)&=\sum\nolimits_{i=0}^n A_i\\
+    \mathcal{F}(x) &=\sum_{k=0}^\infty
+    \oint_0^1 f_k(x,t) t
+\end{align}
+\end{tcblisting}
+
+\begin{tcblisting}{}
+\begin{align}\begin{aligned}
+        Q(x)=&\max \limits_{u\in {\cal U}} \min\limits_\text{p,r,q}
+        \sum\limits_{s\in {\cal S}} \frac{366}{(1+\lambda )^{\rm s}}\sum\limits_{i\in
+            {\cal L}} \sum\limits_{t\in {\cal T}} \bigg(\sum\limits_{g\in {\cal G}}
+        C_{i,\rm {g,t,s}}^{\rm P} p_{i,\rm {g,t,s}}+\\
+        &C_{i,\rm {t,s}}^{\rm R} r_{i,\rm {t,s}}+
+        \sum\limits_{g\in {\cal {G_{\cal R}}}}C_{i,\rm {g,t,s}}^{\rm W} \left(u_{i,\rm {g,s}}^{+}
+        P_{i,\rm g}^{\max} -p_{i,\rm {g,t,s}}\right)\bigg)
+\end{aligned}\end{align}
+\end{tcblisting}
+抄录盒子本身由\md{tcolorbox}宏包实现,主要用于显示一些自定义代码的实现结果,上述两个例子具体实现代码如下:
+
+\begin{lstlisting}[backgroundcolor=\color{gray!5},framerule=1pt,frame=tb,numbers=left,
+    numberstyle=\tiny\color{black},]
+    %第一个抄录盒子,适合内容简短,横向展示内容
+\begin{tcblisting}{sidebyside}
+    \begin{align}
+        \max_nf(n)&=\sum\nolimits_{i=0}^n A_i\\
+        \mathcal{F}(x) &=\sum_{k=0}^\infty
+        \oint_0^1 f_k(x,t) t
+    \end{align}
+\end{tcblisting}
+
+%第二个抄录盒子,内容过长,纵向展示
+\begin{tcblisting}{}
+    \begin{align}\begin{aligned}
+            Q(x)=&\max \limits_{u\in {\cal U}} \min\limits_\text{p,r,q}
+            \sum\limits_{s\in {\cal S}} \frac{366}{(1+\lambda )^{\rm s}}\sum\limits_{i\in
+                {\cal L}} \sum\limits_{t\in {\cal T}} \bigg(\sum\limits_{g\in {\cal G}}
+            C_{i,\rm {g,t,s}}^{\rm P} p_{i,\rm {g,t,s}}+\\
+            &C_{i,\rm {t,s}}^{\rm R} r_{i,\rm {t,s}}+
+            \sum\limits_{g\in {\cal {G_{\cal R}}}}C_{i,\rm {g,t,s}}^{\rm W} \left(u_{i,\rm {g,s}}^{+}
+            P_{i,\rm g}^{\max} -p_{i,\rm {g,t,s}}\right)\bigg)
+    \end{aligned}\end{align}
+\end{tcblisting}
+\end{lstlisting}
+
+\subsection{定理环境}
+由于本模板使用了tcolorbox 宏包来定制定理类环境，所以和普通的定理环境的使用有些许区别，由于抄录环境某些奇怪设置,导致实际运行的结果,和正常书写有些地方存在色差,所以两者都写了,定理类环境的
+使用方法如下：\md{其他类环境使用类似,当然也有一些不类似的,这边还没有测试,祝好运!}
+\begin{lstlisting}[backgroundcolor=\color{gray!5},framerule=1pt,frame=tb,numbers=left,
+    numberstyle=\tiny\color{black},]
+\begin{theorem}{theorem name}{label}
+    The content of theorem.
+\end{theorem}
+\end{lstlisting}
+
+\subsubsection{数学环境-定义}
+具体示例如下所示:
+\begin{tcblisting}{}
+\begin{definition}[可积性] \label{def:int} 
+设 $ f(x)=\sum\limits_{i=1}^{k} a_i \chi_{A_i}(x)$ 是 $E$ 上的\textbf{非负简单函数}，中文其中 $\{A_1,A_2,\ldots,A_k\}$ 是 $E$ 上的一个可测分割，$a_1,a_2,\ldots,a_k$ 是非负实数。定义 $f$ 在 $E$ 上的积分为 $\int_{a}^b f(x)$
+\begin{equation}\label{inter}
+\int_{E} f dx = \sum_{i=1}^k a_i m(A_i) \pi \alpha\beta\sigma\gamma\nu\xi\epsilon\varepsilon. \oint_{a}^b\ointop_{a}^b\prod_{i=1}^n
+\end{equation}
+一般情况下 $0 \leq \int_{E} f dx \leq \infty$。若 $\int_{E} f dx < \infty$，则称 $f$ 在 $E$ 上可积。
+\end{definition}
+\end{tcblisting}
+
+
+带*环境,没有标号
+\begin{definition*}[可积性] \label{def:int} 
+    设 $ f(x)=\sum\limits_{i=1}^{k} a_i \chi_{A_i}(x)$ 是 $E$ 上的\textbf{非负简单函数}，中文其中 $\{A_1,A_2,\ldots,A_k\}$ 是 $E$ 上的一个可测分割，$a_1,a_2,\ldots,a_k$ 是非负实数。定义 $f$ 在 $E$ 上的积分为 $\int_{a}^b f(x)$
+    \begin{equation}\label{inter}
+        \int_{E} f dx = \sum_{i=1}^k a_i m(A_i) \pi \alpha\beta\sigma\gamma\nu\xi\epsilon\varepsilon. \oint_{a}^b\ointop_{a}^b\prod_{i=1}^n
+    \end{equation}
+    一般情况下 $0 \leq \int_{E} f dx \leq \infty$。若 $\int_{E} f dx < \infty$，则称 $f$ 在 $E$ 上可积。
+\end{definition*}
+
+\subsubsection{数学环境-定理}
+具体示例如下所示:
+\begin{tcblisting}{breakable}
+\begin{theorem}[Fubini 定理] \label{thm:fubi} 
+    （1）若 $f(x,y)$ 是 $\mathcal{R}^p\times\mathcal{R}^q$ 上的非负可测函数，则对几乎处处的 $x\in \mathcal{R}^p$，$f(x,y)$ 作为 $y$ 的函数是 $\mathcal{R}^q$上的非负可测函数，$g(x)=\int_{\mathcal{R}^q}f(x,y) dy$ 是 $\mathcal{R}^p$ 上的非负可测函数。并且:
+    \begin{equation}
+        \label{eq:461}
+        \int_{\mathcal{R}^p\times\mathcal{R}^q} f(x,y) dxdy=\int_{\mathcal{R}^p}\left(\int_{\mathcal{R}^q}f(x,y)dy\right)dx.
+    \end{equation}
+    
+    （2）若 $f(x,y)$ 是 $\mathcal{R}^p\times\mathcal{R}^q$ 上的可积函数，则对几乎处处的 $x\in\mathcal{R}^p$，$f(x,y)$ 作为 $y$ 的函数是 $\mathcal{R}^q$ 上的可积函数，并且 $g(x)=\int_{\mathcal{R}^q}f(x,y) dy$ 是 $\mathcal{R}^p$ 上的可积函数。而且~\ref{eq:461} 成立。
+\end{theorem}
+\end{tcblisting}
+
+\begin{theorem}[Fubini 定理] \label{thm:fubi} 
+（1）若 $f(x,y)$ 是 $\mathcal{R}^p\times\mathcal{R}^q$ 上的非负可测函数，则对几乎处处的 $x\in \mathcal{R}^p$，$f(x,y)$ 作为 $y$ 的函数是 $\mathcal{R}^q$ 上的非负可测函数，$g(x)=\int_{\mathcal{R}^q}f(x,y) dy$ 是 $\mathcal{R}^p$ 上的非负可测函数。并且
+\begin{equation}
+\label{eq:461}
+\int_{\mathcal{R}^p\times\mathcal{R}^q} f(x,y) dxdy=\int_{\mathcal{R}^p}\left(\int_{\mathcal{R}^q}f(x,y)dy\right)dx.
+\end{equation}
+
+（2）若 $f(x,y)$ 是 $\mathcal{R}^p\times\mathcal{R}^q$ 上的可积函数，则对几乎处处的 $x\in\mathcal{R}^p$，$f(x,y)$ 作为 $y$ 的函数是 $\mathcal{R}^q$ 上的可积函数，并且 $g(x)=\int_{\mathcal{R}^q}f(x,y) dy$ 是 $\mathcal{R}^p$ 上的可积函数。而且~\ref{eq:461} 成立。
+\end{theorem}
+
+带*环境,没有标号
+\begin{theorem*}[Fubini 定理] \label{thm:fubi} 
+（1）若 $f(x,y)$ 是 $\mathcal{R}^p\times\mathcal{R}^q$ 上的非负可测函数，则对几乎处处的 $x\in \mathcal{R}^p$，$f(x,y)$ 作为 $y$ 的函数是 $\mathcal{R}^q$ 上的非负可测函数，$g(x)=\int_{\mathcal{R}^q}f(x,y) dy$ 是 $\mathcal{R}^p$ 上的非负可测函数。并且
+\begin{equation}
+\label{eq:461}
+\int_{\mathcal{R}^p\times\mathcal{R}^q} f(x,y) dxdy=\int_{\mathcal{R}^p}\left(\int_{\mathcal{R}^q}f(x,y)dy\right)dx.
+\end{equation}
+
+（2）若 $f(x,y)$ 是 $\mathcal{R}^p\times\mathcal{R}^q$ 上的可积函数，则对几乎处处的 $x\in\mathcal{R}^p$，$f(x,y)$ 作为 $y$ 的函数是 $\mathcal{R}^q$ 上的可积函数，并且 $g(x)=\int_{\mathcal{R}^q}f(x,y) dy$ 是 $\mathcal{R}^p$ 上的可积函数。而且~\ref{eq:461} 成立。
+\end{theorem*}
+
+
+
+%定理环境2:源于另一个模板,忘记删了!
+%\begin{mytheo}{拉格朗日中值定理}{chukan}
+%    区間$[\alpha,\beta]$で連続な関数$f(x)$について，
+%    $f(\alpha)$と$f(\beta)$の間にある任意の実数$c$に対して，
+%    ある実数$k\in (\alpha,\beta)$を，$f(k)=c$を
+%    満たすようにとることが出来る。
+%\end{mytheo}
+
+%\begin{tcblisting}{breakable}
+%\begin{mytheo}{拉格朗日中值定理}{chukan}
+%    区間$[\alpha,\beta]$で連続な関数$f(x)$について，
+%    $f(\alpha)$と$f(\beta)$の間にある任意の実数$c$に対して，
+%\end{mytheo}
+%\end{tcblisting}
+%
+\subsubsection{数学环境-公理}
+具体示例如下所示:
+\begin{tcblisting}{}
+\begin{axiom}{皮亚诺公理}
+皮亚诺的这五条公理用非形式化的方法叙述如下：
+\begin{enumerate}
+\item 1是自然数；
+\item 每一个确定的自然数a，都有一个确定的后继数$a'$，$a'$也是自然数, 
+(一个数的后继数就是紧接在这个数后面的数，例如，1的后继数是2，2的后继数是3等等);
+\item 对于每个自然数$b、c，b=c$当且仅当b的后继数=c的后继数；
+\item 1不是任何自然数的后继数；
+\item 任意关于自然数的命题，如果证明了它对自然数1是对的，又假定它对自然数n为真时，可以证明它对n'也真， 
+那么，命题对所有自然数都真。（这条公理保证了数学归纳法的正确性）
+\end{enumerate}
+若将0也视作自然数，则公理中的1要换成0。
+\end{axiom}
+\end{tcblisting}
+   \begin{axiom}{皮亚诺公理}
+    皮亚诺的这五条公理用非形式化的方法叙述如下：
+    \begin{enumerate}
+        \item 1是自然数；
+        \item 每一个确定的自然数a，都有一个确定的后继数$a'$，$a'$也是自然数,(一个数的后继数就是紧接在这个数后面的数，例如，1的后继数是2，2的后继数是3等等);
+        \item 对于每个自然数$b、c，b=c$当且仅当b的后继数=c的后继数；
+        \item 1不是任何自然数的后继数；
+        \item 任意关于自然数的命题，如果证明了它对自然数1是对的，又假定它对自然数n为真时，可以证明它对n'也真，那么，命题对所有自然数都真。（这条公理保证了数学归纳法的正确性）
+    \end{enumerate}
+    若将0也视作自然数，则公理中的1要换成0。
+\end{axiom}
+\subsubsection{数学环境-公设}
+具体示例如下所示:
+\begin{tcblisting}{}
+\begin{postulate}{皮亚诺公设}
+皮亚诺的这五条公理用非形式化的方法叙述如下：
+\begin{enumerate}
+\item 1是自然数；
+\item 每一个确定的自然数a，都有一个确定的后继数$a'$，$a'$也是自然数, 
+(一个数的后继数就是紧接在这个数后面的数，例如，1的后继数是2，2的后继数是3等等);
+\item 对于每个自然数$b、c，b=c$当且仅当b的后继数=c的后继数；
+\item 1不是任何自然数的后继数；
+\item 任意关于自然数的命题，如果证明了它对自然数1是对的，又假定它对自然数n为真时，可以证明它对n'也真， 
+那么，命题对所有自然数都真。（这条公理保证了数学归纳法的正确性）
+\end{enumerate}
+若将0也视作自然数，则公理中的1要换成0。
+\end{postulate}
+\end{tcblisting}
+\begin{postulate}{皮亚诺公设}      
+    皮亚诺的这五条公理用非形式化的方法叙述如下：
+    \begin{enumerate}
+        \item 1是自然数；
+        \item 每一个确定的自然数a，都有一个确定的后继数$a'$，$a'$也是自然数, 
+        (一个数的后继数就是紧接在这个数后面的数，例如，1的后继数是2，2的后继数是3等等);
+        \item 对于每个自然数$b、c，b=c$当且仅当b的后继数=c的后继数；
+        \item 1不是任何自然数的后继数；
+        \item 任意关于自然数的命题，如果证明了它对自然数1是对的，又假定它对自然数n为真时，可以证明它对n'也真， 
+        那么，命题对所有自然数都真。（这条公理保证了数学归纳法的正确性）
+    \end{enumerate}
+    若将0也视作自然数，则公理中的1要换成0。
+\end{postulate}
+
+\begin{postulate*}{皮亚诺公设}      
+皮亚诺的这五条公理用非形式化的方法叙述如下：
+\begin{enumerate}
+    \item 1是自然数；
+    \item 每一个确定的自然数a，都有一个确定的后继数$a'$，$a'$也是自然数, 
+    (一个数的后继数就是紧接在这个数后面的数，例如，1的后继数是2，2的后继数是3等等);
+    \item 对于每个自然数$b、c，b=c$当且仅当b的后继数=c的后继数；
+    \item 1不是任何自然数的后继数；
+    \item 任意关于自然数的命题，如果证明了它对自然数1是对的，又假定它对自然数n为真时，可以证明它对n'也真， 
+    那么，命题对所有自然数都真。（这条公理保证了数学归纳法的正确性）
+\end{enumerate}
+若将0也视作自然数，则公理中的1要换成0。
+\end{postulate*}
+
+
+\subsubsection{数学环境-引理}
+具体示例如下所示:
+    \begin{lemma}[某某引理]
+    已知函数 $y=f[g(x)]$, 若 $u=g(x)$ 在区间 $(\mathrm{a}, \mathrm{b})$ 上是增函数, 其值域 $(\mathrm{c}, \mathrm{d})$, 又函数 $y=f(u)$ 在 $(\mathrm{c}, \mathrm{d})$ 上也 是增函数, 那么复合函数 $y=f[g(x)]$ 在 $(\mathrm{a}, \mathrm{b})$ 上是增函数。
+\end{lemma}
+\begin{tcblisting}{}
+    \begin{lemma}[某某引理]
+已知函数 $y=f[g(x)]$, 若 $u=g(x)$ 在区间 $(\mathrm{a}, \mathrm{b})$ 上是增函数, 其值域 $(\mathrm{c}, \mathrm{d})$, 又函数 $y=f(u)$ 在 $(\mathrm{c}, \mathrm{d})$ 上也 是增函数, 那么复合函数 $y=f[g(x)]$ 在 $(\mathrm{a}, \mathrm{b})$ 上是增函数。
+    \end{lemma}
+\end{tcblisting}
+
+\begin{lemma*}[某某引理]
+已知函数 $y=f[g(x)]$, 若 $u=g(x)$ 在区间 $(\mathrm{a}, \mathrm{b})$ 上是增函数, 其值域 $(\mathrm{c}, \mathrm{d})$, 又函数 $y=f(u)$ 在 $(\mathrm{c}, \mathrm{d})$ 上也 是增函数, 那么复合函数 $y=f[g(x)]$ 在 $(\mathrm{a}, \mathrm{b})$ 上是增函数。
+\end{lemma*}
+
+
+
+\subsubsection{数学环境-命题}
+具体示例如下所示:
+\begin{proposition}
+    在域 $F$ 上的线性空间 $V$ 中,设向量组 $\alpha_{1}, \cdots, \alpha_{s}$ 线性无关,则向量 $\beta$ 可以由向 量组 $\alpha_{1}, \cdots, \alpha_{s}$ 线性表出的充分必要条件是 $\alpha_{1}, \cdots, \alpha_{s}, \beta$ 线性相关。
+\end{proposition}
+
+\begin{tcblisting}{}
+\begin{proposition}
+    在域 $F$ 上的线性空间 $V$ 中,设向量组 $\alpha_{1}, \cdots, \alpha_{s}$ 线性无关,则向量 $\beta$ 可以由向 量组 $\alpha_{1}, \cdots, \alpha_{s}$ 线性表出的充分必要条件是 $\alpha_{1}, \cdots, \alpha_{s}, \beta$ 线性相关。
+\end{proposition}
+\end{tcblisting}
+
+\begin{proposition*}
+    在域 $F$ 上的线性空间 $V$ 中,设向量组 $\alpha_{1}, \cdots, \alpha_{s}$ 线性无关,则向量 $\beta$ 可以由向 量组 $\alpha_{1}, \cdots, \alpha_{s}$ 线性表出的充分必要条件是 $\alpha_{1}, \cdots, \alpha_{s}, \beta$ 线性相关。
+\end{proposition*}
+
+
+%%
+%源于其他的模板的命题环境!
+%\begin{myprop}{拉格朗日中值定理的推广命题}{}
+%    区間$[\alpha,\beta]$で連続な関数$f(x)$について，
+%    $f(\alpha)f(\beta)<0$ならば，方程式$f(x)=0$は$\alpha<x<\beta$の範囲に少なくとも1つの実数解をもつ。
+%\end{myprop}
+%\begin{tcblisting}{}
+%\begin{myprop}{拉格朗日中值定理的推广命题}{}
+%    区間$[\alpha,\beta]$で連続な関数$f(x)$について，
+%    $f(\alpha)f(\beta)<0$ならば，方程式$f(x)=0$は$\alpha<x<\beta$の範囲に少なくとも1つの実数解をもつ。
+%\end{myprop}
+%\end{tcblisting}
+%
+%
+\subsubsection{数学环境-推论}
+具体示例如下所示:
+\begin{corollary}
+    $n$ 元齐次线性方程组有非零解的充分必要条件是:它的系数矩阵经过初等行变换化成的阶
+    梯形矩阵中, 非零行的数目$r<n$
+\end{corollary}
+
+\begin{tcblisting}{}
+\begin{corollary}
+    $n$ 元齐次线性方程组有非零解的充分必要条件是:它的系数矩阵经过初等行变换化成的阶
+    梯形矩阵中, 非零行的数目$r<n$
+\end{corollary}
+\end{tcblisting}
+%
+\subsubsection{数学环境-性质}
+具体示例如下所示:
+\begin{property}
+    命题 $\mathbf{5}$ 在域 $F$ 上的线性空间 $V$ 中,设向量组 $\alpha_{1}, \cdots, \alpha_{s}$ 线性无关,则向量 $\beta$ 可以由向 量组 $\alpha_{1}, \cdots, \alpha_{s}$ 线性表出的充分必要条件是 $\alpha_{1}, \cdots, \alpha_{s}, \beta$ 线性相关。
+\end{property}
+\begin{tcblisting}{}
+\begin{property}
+    命题 $\mathbf{5}$ 在域 $F$ 上的线性空间 $V$ 中,设向量组 $\alpha_{1}, \cdots, \alpha_{s}$ 线性无关,则向量 $\beta$ 可以由向 量组 $\alpha_{1}, \cdots, \alpha_{s}$ 线性表出的充分必要条件是 $\alpha_{1}, \cdots, \alpha_{s}, \beta$ 线性相关。
+\end{property}
+\end{tcblisting}
+%%
+\begin{conclusion}[无序号性质,任意标题]
+    这是结论环境1 行列式的转置和原行列式的值相等
+    $$\left|\boldsymbol{A}^{\prime}\right|=|\boldsymbol{A}|$$
+\end{conclusion}
+\begin{tcblisting}{}
+\begin{conclusion}[无序号性质,任意标题]
+    这是结论环境1 行列式的转置和原行列式的值相等
+    $$\left|\boldsymbol{A}^{\prime}\right|=|\boldsymbol{A}|$$
+\end{conclusion}
+\end{tcblisting}
+%
+\subsubsection{数学环境-假设}
+具体示例如下所示:
+\begin{tcblisting}{}
+\begin{assumption}[类型二]
+    这是假设环境1 行列式的转置和原行列式的值相等$\left|\boldsymbol{A}^{\prime}\right|=|\boldsymbol{A}|$
+\end{assumption}
+\end{tcblisting}
+\begin{assumption}[类型二]
+    这是假设环境1 行列式的转置和原行列式的值相等$\left|\boldsymbol{A}^{\prime}\right|=|\boldsymbol{A}|$
+\end{assumption}
+%\subsubsection{数学环境-证明}
+%具体示例如下所示:
+%\begin{proof}
+%    从上例(2)证明过程看出:
+%从该例子证明中可知形如$a_1 I+a_2 C+a_3 C^3+\cdots+a_n C^{n-1}$的矩阵一定是循环矩阵,其第一行\newline
+%为$a_1,a_2,\cdots,a_n$.
+%\end{proof}
+%\begin{tcblisting}{}
+%\begin{proof}
+%    从上例(2)证明过程看出,从该例子证明中可知形如$a_1 I+a_2 C+a_3 C^3+\cdots+a_n C^{n-1}$的矩阵一定是循环矩阵,其第一行为$a_1,a_2,\cdots,a_n$.
+%\end{proof}
+%\end{tcblisting}
+%\begin{kousiki}{证明}
+%    不怎么好看的证明盒子![可任意修改证明二字]
+%    angular frequency: $\omega = 2\pi f = 2\pi\times1.5 = 3 \pi \radps$
+%    initial displacement $x(0) = 0$
+%    for displacement-time relation, we use sine function
+%    \begin{equation*}
+%        x(t) = - x_0 \cos\omega t \RA x = - 5.0\sin(3\pi t) \teoe
+%    \end{equation*}
+%    
+%\end{kousiki}
+%\begin{tcblisting}{}
+%\begin{kousiki}{证明}
+%    不怎么好看的证明盒子!
+%    angular frequency: $\omega = 2\pi f = 2\pi\times1.5 = 3 \pi \radps$
+%    initial displacement $x(0) = 0$
+%    for displacement-time relation, we use sine function
+%    \begin{equation*}
+%        x(t) = - x_0 \cos\omega t \RA x = - 5.0\sin(3\pi t) \teoe
+%    \end{equation*}
+%\end{kousiki}
+%\end{tcblisting}
+%
+\subsubsection{数学环境-例题\&练习}
+具体示例如下所示:
+\begin{example}[][exam:1.1]
+    \label{example:fixed point method 2}
+    设$\displaystyle x_1=1,x_2=\frac{1}{2},x_{n+1}=\frac{1}{1+x_n}$,求$\displaystyle\lim_{n\to\infty}x_n$.
+\end{example}
+\begin{tcblisting}{}
+\begin{example}[][exam:1.1]
+    \label{example:fixed point method 2}
+    设$\displaystyle x_1=1,x_2=\frac{1}{2},x_{n+1}=\frac{1}{1+x_n}$,求$\displaystyle\lim_{n\to\infty}x_n$.
+\end{example}
+\end{tcblisting}
+%
+\begin{tcblisting}{}
+\begin{reidai}
+    次の問題に答えなさい。
+    \begin{enumerate}
+        \item 8人を2つの組に分ける方法は何通りあるか。
+        \item 6人を3つの部屋A，B，Cに入れる方法は何通りあるか。ただし各部屋に少なくとも1人は入るものとする。
+    \end{enumerate}
+    \tcblower
+    区別があるかどうかを正しく考えます。
+    \begin{enumerate}
+        \item なんだかんだで127通り
+        \item なんだかんだで540通り
+    \end{enumerate}
+\end{reidai}
+\end{tcblisting}
+%
+\begin{reidai}
+次の問題に答えなさい。
+\begin{enumerate}
+    \item 8人を2つの組に分ける方法は何通りあるか。
+    \item 6人を3つの部屋A，B，Cに入れる方法は何通りあるか。ただし各部屋に少なくとも1人は入るものとする。
+\end{enumerate}
+\tcblower
+区別があるかどうかを正しく考えます。
+\begin{enumerate}
+    \item なんだかんだで127通り
+    \item なんだかんだで540通り
+\end{enumerate}
+\end{reidai}
+%%
+%%
+\subsubsection{任意环境-自定义标记}
+具体示例如下所示:
+\begin{anymark}[总结~证明极限存在性常用二法]
+    已知$\lim_{n\to\infty}a_n=a$\;有限数或$+\infty$或$-\infty$,则
+    \begin{enumerate}
+        \item $\lim_{n\to\infty}\frac{a_1+a_2+\cdots+a_n}{n}=a$;
+    \end{enumerate}
+\end{anymark}
+\begin{tcblisting}{}
+\begin{anymark}[总结~证明极限存在性常用二法]
+已知$\lim_{n\to\infty}a_n=a$\;有限数或$+\infty$或$-\infty$,则
+\begin{enumerate}
+    \item $\lim_{n\to\infty}\frac{a_1+a_2+\cdots+a_n}{n}=a$;
+\end{enumerate}
+\end{anymark}
+\end{tcblisting}
+
+    \begin{anymark}[注解~证明极限存在性常用二法]{}
+    已知$\lim_{n\to\infty}a_n=a$\;有限数或$+\infty$或$-\infty$,则
+    \begin{enumerate}
+        \item $\lim_{n\to\infty}\frac{a_1+a_2+\cdots+a_n}{n}=a$;
+        \item 若$a_n>0$,则$\sqrt[n]{a_a a_2 \cdots a_n}=a$.
+    \end{enumerate}
+\end{anymark}
+
+\begin{tcblisting}{}
+\begin{anymark}[注解~证明极限存在性常用二法]{}
+已知$\lim_{n\to\infty}a_n=a$\;有限数或$+\infty$或$-\infty$,则
+\begin{enumerate}
+    \item $\lim_{n\to\infty}\frac{a_1+a_2+\cdots+a_n}{n}=a$;
+    \item 若$a_n>0$,则$\sqrt[n]{a_a a_2 \cdots a_n}=a$.
+\end{enumerate}
+\end{anymark}
+\end{tcblisting}
+%
+\begin{mybox1}
+    设$A,B$都是域$F$上的$n$级矩阵.证明:如果$AB\pm BA=A$,且$B$是幂零矩阵,那么$A=0$.
+\end{mybox1}
+\begin{tcblisting}{}
+\begin{mybox1}
+    设$A,B$都是域$F$上的$n$级矩阵.证明:如果$AB\pm BA=A$,且$B$是幂零矩阵,那么$A=0$.
+\end{mybox1}
+\end{tcblisting}
+%
+\begin{marker}
+    For the constant relationship between linear velocity and angular velocity, we can use linear velocity to describe the angular velocity, and conversely, we can use angular velocity to describe linear velocity.
+\end{marker}
+
+\begin{tcblisting}{}
+\begin{marker}
+    For the constant relationship between linear velocity and angular velocity, we can use linear velocity to describe the angular velocity, and conversely, we can use angular velocity to describe linear velocity.
+\end{marker}
+\end{tcblisting}
+
+\section{模板内容介绍-其他盒子}
+\md{A-Level-Physics}该模板中提供了一系列的盒子,目前对其中比较喜欢的盒子也做了移植!具体内容如下:
+\subsection{ascolorbox类移植盒子-多行彩框}
+
+\begin{ascolorbox1}[子标题]{标题}
+\zhlipsum[1]
+\end{ascolorbox1}
+\begin{lstlisting}[backgroundcolor=\color{gray!5},framerule=1pt,frame=tb,numbers=left,
+    numberstyle=\tiny\color{black},]
+\begin{ascolorbox1}[<subtitle>]{<title>}[<options>]
+    environment content
+\end{ascolorbox1}
+\end{lstlisting}
+这是tcolorbox 手册自带框的黑白版本，支持分页。\md{[⟨subtitle⟩]}是选择项，\md{[⟨option⟩]} 可以自动加定义。
+
+\begin{ascolorbox3}{标题}
+    \zhlipsum[1]
+\end{ascolorbox3}
+
+\begin{ascolorbox3}{标题}[orange][coltitle=orange!50!black]
+    \zhlipsum[1]
+\end{ascolorbox3}
+\begin{lstlisting}[backgroundcolor=\color{gray!5},framerule=1pt,frame=tb,numbers=left,
+    numberstyle=\tiny\color{black},]
+\begin{ascolorbox3}{<title>}[<color>][<option>]
+    environment content
+\end{ascolorbox3}
+\end{lstlisting}
+这是tcolorbox 手册自带框的黑白版本。\md{color}可以用来修改框颜色，\md{option} 可以自动加定义。
+
+\begin{ascolorbox4}[子标题]{标题}
+    \zhlipsum[1]
+\end{ascolorbox4}
+
+\begin{ascolorbox4}[子标题]{标题}[2]
+    \zhlipsum[1]
+\end{ascolorbox4}
+
+\begin{lstlisting}[backgroundcolor=\color{gray!5},framerule=1pt,frame=tb,numbers=left,
+    numberstyle=\tiny\color{black},]
+\begin{ascolorbox4}[<subtitle>]{<title>}[<length>][<option>]
+    environment content
+\end{ascolorbox4}
+\end{lstlisting}
+这是移植样式，可以通过修改\md{[⟨length⟩]}来修改实线与虚线的宽度。四个角的正方形和圆弧
+也会跟着这一个值进行变化，其默认宽度为3，如果在双栏环境里，推荐改为2 版面看起来更加整洁。
+
+\begin{ascolorbox5}[子标题]{标题}
+    \zhlipsum[1]
+\end{ascolorbox5}
+
+\begin{ascolorbox5}[子标题]{标题}[black!50!white][coltext=cyan!40!white]
+    \zhlipsum[1]
+\end{ascolorbox5}
+\begin{lstlisting}[backgroundcolor=\color{gray!5},framerule=1pt,frame=tb,numbers=left,
+    numberstyle=\tiny\color{black},]
+\begin{ascolorbox5}[<subtitle>]{<title>}[<color>][<option>]
+    environment content
+\end{ascolorbox5}
+\end{lstlisting}
+这是移植的样式，可以通过修改\md{[⟨color⟩]}来修改颜色。可在\md{[⟨option⟩]}中指定框架颜色，标题颜色和字符颜色。
+
+\begin{ascolorbox9}{标题}
+    \zhlipsum[1]
+\end{ascolorbox9}
+\begin{lstlisting}[backgroundcolor=\color{gray!5},framerule=1pt,frame=tb,numbers=left,
+    numberstyle=\tiny\color{black},]
+\begin{ascolorbox9}{<title>}[<number>][<option>]
+    environment content
+\end{ascolorbox9}
+\end{lstlisting}
+这是移植的样式，可以通过\md{[⟨number⟩]}来指定重复小球的个数，默认数值为3。若是在双栏排
+版的时候推荐修改数值为2。
+
+\begin{ascolorbox10}[子标题]{标题}
+    \zhlipsum[1]
+\end{ascolorbox10}
+
+\begin{ascolorbox10}[子标题]{标题}[1][width=\linewidth-4cm,enlarge right by=2cm, enlarge left by=2cm]
+    \zhlipsum[1]
+\end{ascolorbox10}
+\begin{lstlisting}[backgroundcolor=\color{gray!5},framerule=1pt,frame=tb,numbers=left,
+    numberstyle=\tiny\color{black},]
+\begin{ascolorbox10}[<subtitle>]{<title>}[<thickness>][<option>]
+    environment content
+\end{ascolorbox10}
+\end{lstlisting}
+只有底部和顶部的框线，可以通过\md{[⟨thickness⟩]} 来修改线的粗细，默认值是0.8。框的左右缩进宽度为2mm，如果想增加缩进宽度，可以通过修改\texttt{/tcb/ enlarge left by }和\texttt{/tcb/enlarge
+right by }来调整缩进的宽度。选项可以在保证框的宽度的同时改变左右边距，因此用户可以根据需求调整。
+
+
+\begin{ascolorbox11}[子标题]{标题}
+    \zhlipsum[1]
+\end{ascolorbox11}
+\begin{lstlisting}[backgroundcolor=\color{gray!5},framerule=1pt,frame=tb,numbers=left,
+    numberstyle=\tiny\color{black},]
+\begin{ascolorbox11}[<subtitle>]{<title>}[<length>][<option>]
+    environment content
+\end{ascolorbox11}
+\end{lstlisting}
+只有底部和顶部的框线，可以通过\md{[⟨length⟩]}来调整四角的正方形的尺寸，默认值是4pt，双栏排版时，推
+荐设置小一些。
+%
+\begin{ascolorbox17}[子标题]{标题}
+    \zhlipsum[1]
+\end{ascolorbox17}
+
+\begin{ascolorbox17}[子标题]{标题}[cyan]
+    \zhlipsum[1]
+\end{ascolorbox17}
+\begin{lstlisting}[backgroundcolor=\color{gray!5},framerule=1pt,frame=tb,numbers=left,
+    numberstyle=\tiny\color{black},]
+\begin{ascolorbox17}[<subtitle>]{<title>}[<color>][<option>]
+    environment content
+\end{ascolorbox17}
+\end{lstlisting}
+这是一个括号样式的框，可以通过\md{[⟨color⟩]}来调整线条的颜色，如果颜色设置为白色，则只包括括号部
+分。
+
+\begin{ascolorbox19}[子标题]{标题}
+    \zhlipsum[1]
+\end{ascolorbox19}
+
+\begin{ascolorbox19}[子标题]{标题}[3]
+    \zhlipsum[1]
+\end{ascolorbox19}
+
+\begin{lstlisting}[backgroundcolor=\color{gray!5},framerule=1pt,frame=tb,numbers=left,
+    numberstyle=\tiny\color{black},]
+\begin{ascolorbox19}[<subtitle>]{<title>}[<length>][<option>]
+    environment content
+\end{ascolorbox19}
+\end{lstlisting}
+这是ascolorbox 原创的样式，可以通过[\md{[⟨length⟩]}来调整两根线的距离，默认值是\textbf{2pt}。左上部分为
+\textbf{black!40!white}，正方形部分为\textbf{black!70!white}，右下部分为黑色。
+
+\subsection{ascbox类移植盒子-单行盒子}
+\verb|\ascbox| 是根据\verb|\tcbox |定义的框，用来设置小标题是非常方便的。由于\verb|\DeclareTCBox |主要用于\verb|\ascbox|，
+因此可以设置很多选项。大多\verb|\ascbox |可以通过在参数部分添加*来反转颜色。
+
+\begin{tcblisting}{sidebyside}
+    \ascboxA{This is my title}
+    
+    \ascboxB{This is my title}
+\end{tcblisting}
+
+通过在 \verb|{type}| 中指定 A 到 E 之一可以更改输出格式。 默认输出格式为 A。 您可以通过在 \verb|{type}| 之前添加 \verb|*|来反转色调。
+\begin{tcblisting}{sidebyside}
+    \ascboxB[B]{This is my title}
+    
+    \ascboxB*[B]{This is my title} 
+\end{tcblisting}
+
+\
+\begin{tcblisting}{sidebyside}
+    \ascboxB[C]{This is my title}
+    
+    \ascboxB*[C]{This is my title}
+\end{tcblisting}
+\begin{tcblisting}{sidebyside}
+    \ascboxB[D]{This is my title}
+    
+    \ascboxB*[D]{This is my title}
+\end{tcblisting}
+\begin{tcblisting}{sidebyside}
+    \ascboxB[E]{This is my title}
+    
+    \ascboxB*[E]{This is my title}
+\end{tcblisting}
+
+
+在 \verb|{option}| 之后，可以用\verb|*|删除标题的下划线。 因此，如果添加两个\verb|*|，则输出将为“颜色反转+没有下划线”。
+
+\begin{tcblisting}{sidebyside}
+    \ascboxB**{This is my title} 
+\end{tcblisting}
+
+如果要取消下划线、却又不要反转色调，则必须大括号指定省略options。
+\begin{tcblisting}{sidebyside}
+    \ascboxB[A][]*{This is my title}
+    
+    \ascboxB*[C][]*{This is my title}
+\end{tcblisting}
+
+
+\begin{lstlisting}[backgroundcolor=\color{gray!5},framerule=1pt,frame=tb,numbers=left,
+    numberstyle=\tiny\color{black},]
+\ascboxJ<star>[<type>][<options>]<star>{<title>}
+\end{lstlisting}
+
+
+\begin{tcblisting}{sidebyside}
+    \ascboxJ{This is my title}
+    
+    \ascboxJ*{This is my title}
+\end{tcblisting}
+
+\begin{tcblisting}{sidebyside}
+    \ascboxJ[B]{This is my title}
+    
+    \ascboxJ*[B]{This is my title}
+\end{tcblisting}
+
+
+
+\begin{tcblisting}{sidebyside}
+    \ascboxJ[C]{This is my title}
+    
+    \ascboxJ*[C]{This is my title}
+\end{tcblisting}
+
+\begin{tcblisting}{sidebyside}
+    \ascboxJ[D]{This is my title}
+    
+    \ascboxJ*[D]{This is my title}
+\end{tcblisting}
+
+
+\begin{tcblisting}{sidebyside}
+    \ascboxJ[E]{This is my title}
+    
+    \ascboxJ*[E]{This is my title}
+\end{tcblisting}
+
+\begin{tcblisting}{sidebyside}
+    \ascboxJ[F]{This is my title}
+    
+    \ascboxJ*[F]{This is my title}
+\end{tcblisting}
+
+\begin{tcblisting}{sidebyside}
+    \ascboxJ[G]{This is my title}
+    
+    \ascboxJ*[G]{This is my title}
+\end{tcblisting}
+
+\begin{tcblisting}{sidebyside}
+    \ascboxJ[H]{This is my title}
+    
+    \ascboxJ*[H]{This is my title}
+\end{tcblisting}
+
+不要问为啥没有ascbox其他类盒子,因为我给删了!想要看其他类盒子都有那些,可以去:
+\href{https://www.latexstudio.net/index/details/index/mid/2314.html}{latexstudio论坛}去看看这个老版本,如果对这个有要求的话,可以补充上去!
+
+
+
+
+
+\subsection{补充环境}
+
+\begin{tcblisting}{sidebyside}
+$\boxed{ F_c = m\frac{v^2}{r} = m\omega^2r}$
+\end{tcblisting}
+
+
+\begin{tcblisting}{sidebyside}
+\keypoint{centripetal acceleration} 
+\end{tcblisting}
+%
+\begin{tcblisting}{sidebyside}
+\md{centripetal acceleration} 
+\end{tcblisting}
+%
+\begin{tcblisting}{sidebyside}
+\cmt unit of: $[\omega] = \radps$.
+\end{tcblisting}
+
+
+\begin{tcblisting}{sidebyside}
+\sol  unit of: $[\omega] = \radps$.
+\end{tcblisting}
+\begin{tcblisting}{}
+\solc
+\begin{equation*}
+\frac{GMm}{r^2} = m \omega^2 r \RA \frac{GMm}{r^2} = m\left(\frac{2\pi}{T}\right)^2 r \RA r^3 = \frac{GMT^2}{4\pi^2}
+\end{equation*}
+\end{tcblisting}
+
+\begin{tcblisting}{}
+\questions{A turntable that can rotate freely in a horizontal plane is covered by dry mud. When the angular speed of rotation is gradually increased, state and explain whether the mud near edge of the plate or near the mud will first leave the plate?}
+\end{tcblisting}
+补充盒子,warnning盒子,忘记了,论坛上某个文档中移植的.
+\begin{warning}[title={{\color{mred} \faDropbox} 完全限定列名：\ }]
+在引用的列可能出现二义性时，必须使用完
+全限定列名（用一个点分隔的表名和列名）。如果引用一个
+没有用表名限制的具有二义性的列名，MySQL将返回错误。
+\end{warning}
+
+\begin{tcblisting}{}
+\begin{warning}[title={{\color{mred} \faDropbox} 完全限定列名：\ }]
+在引用的列可能出现二义性时，必须使用完
+全限定列名（用一个点分隔的表名和列名）。如果引用一个
+没有用表名限制的具有二义性的列名，MySQL将返回错误。
+\end{warning}
+\end{tcblisting}
+
+雾月老师定制的盒子.
+\begin{ysbox}
+\zhlipsum[2]
+\end{ysbox}
+%
+\begin{ysbox}
+\centering
+\medskip
+{\zihao{-3}\bfseries 引蝶之章\ 第一幕}
+\par\bigskip
+
+{\zihao{2}\bfseries 奈何蝶飞去}
+
+\par\medskip
+
+\begin{center}
+    \pgfornament[width=0.36\linewidth,color=lsp]{88} \\
+\end{center}
+\centering
+\tcbox[enhanced,frame hidden,top=0pt,bottom=0pt,left=4.5em,right=4.5em,
+  interior code={\path[fill=framegolden,path fading=ys circle](interior.north west) rectangle (interior.south east);},
+]{已开启}
+
+\end{ysbox}
+
+
+\section{模板内容介绍-抄录环境}
+可以跨页的环境!
+\hdrule{rsync参数}
+这个可以跨页
+\btrule{}
+\begin{tcblisting}{}
+可以跨页的环境!
+\hdrule{rsync参数}
+这个可以跨页
+\btrule{}
+\end{tcblisting}
+%
+%
+可以魔改背景,这个不错!
+\begin{ascolorbox5}[subtitle]{<title>}[cyan][enhanced,title=My title,watermark graphics=bg2
+    (1).png,coltext=black,
+    watermark opacity=.8,]
+    \lipsum[2]
+    \tcblower
+    \begin{center}
+        \pgfornament[width=0.36\linewidth,color=lsp]{88}
+    \end{center}
+    \begin{center}{\textcolor[RGB]{255, 0,
+                0}{\faHeart}~西风骑士团「火花骑士」，可莉，前来报到!…呃,后面该说什么词来着?可莉背不下来啦…~
+            \textcolor[RGB]{255, 0, 0}{\faHeart}}
+    \end{center}
+    \rightline{——《原神》· 可莉}
+\end{ascolorbox5}
+
+
+自定义环境,总觉得很奇怪!
+\begin{mycmd2}{[root@azurekite /]\#}
+    \begin{lstlisting}[style=python2]
+def main(): # 主函数
+        pool = multiprocessing.Pool(processes=2) # 定义2个大小的进程池
+        for item in range(10): # 创建10个进程
+            result = pool.apply_async(func=work, args=(item,)) # 非阻塞形式执行进程
+        print(result.get()) # 获取进程返回结果
+        pool.close() # 执行完毕后关闭进程池
+        pool.join() # 等待进程池执行完毕
+    \end{lstlisting}
+\end{mycmd2}
+
+\begin{tcblisting}{}
+\begin{mycmd2}{[root@azurekite /]\#}
+\begin{lstlisting}[style=python2]
+def main(): # 主函数
+    pool = multiprocessing.Pool(processes=2) # 定义2个大小的进程池
+    for item in range(10): # 创建10个进程
+        result = pool.apply_async(func=work, args=(item,)) # 非阻塞形式执行进程
+        print(result.get()) # 获取进程返回结果
+    pool.close() # 执行完毕后关闭进程池
+    pool.join() # 等待进程池执行完毕
+\end{lstlisting}
+\end{mycmd2}
+\end{tcblisting}
+
+\begin{macbox}{这是标题}
+\begin{lstlisting}[style=python4]
+def main(): # 主函数
+    pool = multiprocessing.Pool(processes=2) # 定义2个大小的进程池
+    for item in range(10): # 创建10个进程
+        result = pool.apply_async(func=work, args=(item,)) # 非阻塞形式执行进程
+        print(result.get()) # 获取进程返回结果
+    pool.close() # 执行完毕后关闭进程池
+    pool.join() # 等待进程池执行完毕
+\end{lstlisting}
+\end{macbox}
+
+\begin{macboxd}{这是标题}
+\begin{lstlisting}[style=python3]
+def main(): # 主函数
+    pool = multiprocessing.Pool(processes=2) # 定义2个大小的进程池
+    for item in range(10): # 创建10个进程
+        result = pool.apply_async(func=work, args=(item,)) # 非阻塞形式执行进程
+        print(result.get()) # 获取进程返回结果
+    pool.close() # 执行完毕后关闭进程池
+    pool.join() # 等待进程池执行完毕
+\end{lstlisting}
+\end{macboxd}
+
+\section{模板使用问题-编译过慢}
+目前检测到, 编译过慢的问题, 一是由于加载了太多了盒子的缘故,
+第二part 设计会严重拉低编译速度, 目测每一个part 拉低9 秒左右, 因此在使用过程中, 可以先不加part 进行编译!

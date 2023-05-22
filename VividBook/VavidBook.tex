@@ -1,0 +1,56 @@
+%\documentclass[lang=cn,10pt,newtx,thmcnt=section,cod=minted]{vavidbook} %开启minted版本,
+\documentclass[lang=cn,10pt,newtx,thmcnt=section]{vavidbook} % 无minted版本!使用这个请务必注释掉48行附近的\input{cha/minteds.tex}
+\title{VividBook：生动的\LaTeX{} 书籍模板}
+\subtitle{Bringing Color to Knowledge}
+
+\author{雨霓同学\& Azure1210}
+\institute{鸢}
+\date{\today}
+\version{V6-正式版}
+\bioinfo{邮箱}{sx12101184@qq.com}
+
+\extrainfo{在没有结束前，总要做很多没有意义的事，这样才可以在未来某一天，用这些无意义的事去堵住那些讨厌的缺口}
+
+\setcounter{tocdepth}{3}
+
+\logo{logo-blue.png}
+\cover{cover.png}
+
+% 本文档命令
+\usepackage{array}
+\newcommand{\ccr}[1]{\makecell{{\color{#1}\rule{1cm}{1cm}}}}
+
+% 修改标题页的橙色带
+\definecolor{customcolor}{RGB}{245, 250, 246}
+\colorlet{coverlinecolor}{customcolor}
+\usepackage{cprotect}
+\usepackage{zhlipsum}
+\usepackage{longtable}
+\addbibresource[location=local]{reference.bib} % 参考文献，不要删除
+\usepackage{animate}
+\definecolor{framegolden}{RGB}{0, 174, 247} % 控制外框颜色
+\begin{document}
+
+\chapterimage{q2.png} 
+\maketitle
+\input{cha/xuzhang.tex}
+\input{cha/zhixie.tex}
+\frontmatter
+\thispagestyle{fancy}
+\tableofcontents
+
+\mainmatter
+\partsimage{cov18.png}
+
+\part{模板介绍}
+\chapterimage{1210.png}
+\input{cha/cha.tex}
+%\input{cha/minteds.tex} % 如果不会使用minted宏包,请务必注释掉
+\chapterimage{sd.png}
+\input{cha/change.tex}
+
+
+
+
+\end{document}
+
