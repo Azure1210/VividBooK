@@ -1,0 +1,2 @@
+# VividBooK
+原ElegantBook魔改版/gorgeousnbook书籍模板更新版
