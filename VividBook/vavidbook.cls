@@ -1426,7 +1426,7 @@ morekeywords={DeclareSymbolFont,SetSymbolFont,toprule,midrule,bottomrule,institu
 
 
 %%%%%%%%%%%%%%%%性质
-\newcounter{property}
+\newcounter{property}[section]
 \setcounter{property}{0}
 \renewcommand{\theproperty}{\arabic{property}}
 
