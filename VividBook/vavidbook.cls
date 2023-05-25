@@ -861,9 +861,6 @@
 
 \newenvironment{solution}{\par\noindent\textbf{\color{main}\solutionname} \citshape}{\par}
 \newenvironment{remark}{\noindent\textbf{\color{second}\remarkname}}{\par}
-%\newenvironment{assumption}{\par\noindent\textbf{\color{third}\assumptionname} \citshape}{\par}  %这三个暂时移除
-%\newenvironment{conclusion}{\par\noindent\textbf{\color{third}\conclusionname} \citshape}{\par}
-%\newenvironment{property}{\par\noindent\textbf{\color{third}\propertyname} \citshape}{\par}
 \newenvironment{custom}[1]{\par\noindent\textbf{\color{third} #1} \citshape}{\par}
 
 \RequirePackage{multicol}
@@ -1430,7 +1427,7 @@ morekeywords={DeclareSymbolFont,SetSymbolFont,toprule,midrule,bottomrule,institu
 
 %%%%%%%%%%%%%%%%性质
 \newcounter{property}
-\setcounter{property}{1}
+\setcounter{property}{0}
 \renewcommand{\theproperty}{\arabic{property}}
 
 \newtcolorbox{wwproposition3}[2][]{
@@ -1446,7 +1443,7 @@ morekeywords={DeclareSymbolFont,SetSymbolFont,toprule,midrule,bottomrule,institu
         inner sep=1.5mm,fill=structurecolor,
         anchor=west,
         font=\normalsize] at ([xshift=0cm,yshift=-3.mm]frame.north west)%
-        {\bf  \color{white} 性质~\theproperty. ~#2}; %这里可以补计数器
+        {\bf  \color{white} \propertyname~\theproperty. ~#2}; %这里可以补计数器
         %底部 (下边缘)颜色装饰矩形%更改有效
         \fill[fill=structurecolor]  (.9\textwidth,0.2cm) rectangle(\textwidth,-0.0cm);
     },%上面是实际控制代码,下面的代码仅在跨页分割时生效
@@ -1458,7 +1455,7 @@ morekeywords={DeclareSymbolFont,SetSymbolFont,toprule,midrule,bottomrule,institu
         inner sep=1.5mm,fill=DeepPink,
         anchor=west,
         font=\normalsize] at ([xshift=0cm,yshift=-3.mm]frame.north west)%
-        {\bf  \color{white}  性质~\theproperty. #2};
+        {\bf  \color{white}  \propertyname~\theproperty. #2};
     },%保持边缘的变化
     overlay last = {%跨页时生效
         % \draw[color=gray,  line width=0.2pt] (frame.south west)--([xshift=0pt]frame.south east);
@@ -1467,7 +1464,7 @@ morekeywords={DeclareSymbolFont,SetSymbolFont,toprule,midrule,bottomrule,institu
     }
     #1
 }
-\NewDocumentEnvironment{property}{O{} O{} O{}}{\smallskip\begin{wwproposition3}{#1}{#2}#3}{\end{wwproposition3} }
+\NewDocumentEnvironment{property}{O{} O{} O{}}{\stepcounter{property} \smallskip\begin{wwproposition3}{#1}{#2}#3}{\end{wwproposition3} }
 
 %%%%%%%%%%%%%%%%
 \tikzset{
