@@ -1,0 +1,90 @@
+\chapter{版本更新历史}
+\begin{center}
+\textcolor[RGB]{255, 0, 0}{\faHeart}~不愿意沟通的话,问题就会永远留在那里.人们就看着,看着……直到眼睁睁地错过所有解决它的机会.~\textcolor[RGB]{255, 0, 0}{\faHeart}
+\end{center}
+\rightline{——《长野原宵宫》}
+\begin{center}
+	\pgfornament[width=0.36\linewidth,color=lsp]{88}
+\end{center}
+
+2019年5月10日左右,在\href{latexstudio论坛}{www.latexstudio.net}看见了
+\href{https://www.latexstudio.net/archives/10715.html}{LaTeX排版的《热力学与统计物理导论》},该排版作品由超理汉化组制作的,模板应源自于\href{http://www.latextemplates.com/template/the-legrand-orange-book}{《The Legrand Orange Book》},这本书模板具有优雅的布局，带有漂亮的标题页和部分/章节标题。后面遇见了\href{https://elegantlatex.org/}{Elegant\LaTeX{} 系列模板},ElegantLATEX 项目组致力于打造一系列美观、优雅、简便的模板方便用户使用。目前由
+ElegantNote，ElegantBook，ElegantPaper 组成，分别用于排版笔记，书籍和工作论文。该模板提供了优秀的封面设计,目录设计,及各种定制化的盒子,颜色丰富。
+
+自此开始将两个模板进行魔改,主要是将《The Legrand Orange Book》该模板上章节封面设计,目录设计等内容,移植到ElegantBook上,2022年1月4日该魔改模板以上传到\href{latexstudio论坛}{www.latexstudio.net}上.至此第一个版本version2.1诞生。
+
+2022年5月1日,由于原先模板内容设计混乱,重复代码太多,而且编译速度特别墨迹,于是将原先模板进行二次重构,精简代码,目前样式定制部分已完成大半,剩余部分之后会进行补充,章节样式部分完成了心心念念的小目录设计,更多修改内容见版本更新历史。至此第二个版本更新!
+
+2022年7月6日,考虑到和ElegantBook系列模板冲突,主要是类文件冲突,导致前者维护出现出现一些不必要问题,因此对该模板进行名称修改!
+
+2023年5月20日,考虑到模板使用有些繁琐,主要是minted宏包的使用,对不进行代码排版的同学,这部分会产生严重困扰,主要是使用minted宏包,需要安装python以及需要在python中安装第三方库Pygments,使用太过繁琐.因此决定对这部分进行优化,另外一方面,减少对其他语言的依赖由于ElegantBook
+对其他语言也有很好的支持,但是我不怎么用,所以这部分直接砍掉了,总之删除了很多不怎么使用的内容,因此目前支持的环境有中英两种.其中英文部分有些环境有可能会没有.主要问题是我可能太菜了.盒子环境这次在雾月老师的帮助以及Beautybook的作者的帮助下,添加了一个新的盒子环境.具体的话见正文.emmm除此之外我又将模板的名字更改了,原因呢之前的名字太难写了,难写又难记.所以就改了,在chatgpt的帮助下,我选择了VividBook这个名字!
+这次基本更新就这些.
+
+\datechange{2022/05/20}{大版本修正}
+\begin{change}
+    \item \textbf{重要修正}：修改模板名称
+    \item minted系列环境修复,添加选项修复
+    \item 部分语言支持移除
+    \item 添加新的盒子环境
+    \item 继续删减cls文件.
+\end{change}
+
+
+\datechange{2020/07/06}{版本5-$\alpha$正式版诞生}
+\begin{change}
+    \item \textbf{重要修正}：修改模板系列名称
+    \item 添加Beautybook模板作者引用信息
+    \item 修改模板部分地方信息[一些标题修改]
+\end{change}
+
+\datechange{2020/05/02}{版本 $4-\beta$正式版诞生}
+
+\begin{change}
+    \item \textbf{重要修正}：补充代码抄录环境
+    \item 移除部分无效环境
+    \item 更正代码字体
+    \item 代码抄录环境建议使用minted宏包
+    \item 特使盒子依旧提供lstlisting环境
+    \item 添加特殊的伪跨页盒子
+\end{change}
+
+\datechange{2020/05/1}{版本 $3.0-\alpha$测试版诞生}
+
+\begin{change}
+ \item \textbf{重要修正}：将原先定制内容写入cls文件中,精简代码
+\item 补充了一些数学环境
+\item 删除了一些重复的盒子环境
+\item 重写修改目录样式
+\item \md{添加part部分的小目录}
+\item 部分章节样式重新定义
+\item 部分目录样式重新定义
+\item 删除原先cls文件中对其他语言的支持
+\item 移除所有的minted代码抄录环境,后续会补
+\item 模板用最新版本的ElegentBook模板,newtext宏包问题解决
+\item 重新定义代码抄录环境的字体
+\item 页眉页脚进行重定义,支持奇偶页
+\end{change}
+
+\datechange{2020/02/25}{版本 2.2 诞生}
+
+\begin{change}
+  \item \textbf{重要修正}：重新整理模板设计文件。
+  \item 将模板中涉及到的环境,进行整理。
+  \item 定制Part部分的背景接口,可以自定义修改背景图片。
+  \item 修改模板目录中部分地方的间距。
+\end{change}
+
+
+\datechange{2022/01/04}{版本 2.1 正式发布。}
+
+\begin{change}
+  \item \textbf{重要改进}：模板诞生,重要环境移植成功.。
+  \item 添加很多tcolorbox盒子,主要源自easyphys.sty文件。
+  \item 修改ElegentBook模板的数学环境,重新修改了很多环境样式。
+  \item 添加很多代码抄录环境。
+  \item 修改页眉,页脚样式。
+  \item 部分盒子可以进行跨页操作。
+  \item 修改ElegentBook模板中的一些颜色设置。
+\end{change}
+

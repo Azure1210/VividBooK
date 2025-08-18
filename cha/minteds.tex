@@ -1,0 +1,70 @@
+\section{模板内容介绍-minted环境}
+minted宏包,nginx抄录环境
+\begin{minted}{nginx}
+    worker_processes 1; # 只启动一个工作进程
+    events {
+        worker_connections 1024; # 每个工作进程最大连接数为1023
+    }
+    http {
+        include mime.types; # 引入MIME类型映射表文件
+        keepalive_timeout 65; # 保持连接时间为65s
+        server {
+            listen 80; # 监听80端口的网络连接请求
+            server_name localhost; # 虚拟主机名为localhost
+            error_page 500 502 503 504 /50x.html;
+        }
+    }
+\end{minted}
+
+minted宏包,shell抄录环境
+\begin{minted}{shell}
+[root@localhost nginx]$ pwd
+\end{minted}
+
+minted宏包,python抄录环境
+\begin{minted}{python}
+def main(): # 主函数
+    pool = multiprocessing.Pool(processes=2) # 定义2个大小的进程池
+    for item in range(10): # 创建10个进程
+        result = pool.apply_async(func=work, args=(item,)) # 非阻塞形式执行进程
+        print(result.get()) # 获取进程返回结果
+    pool.close() # 执行完毕后关闭进程池
+    pool.join() # 等待进程池执行完毕
+\end{minted}
+
+minted宏包,vim抄录环境
+\begin{minted}{vim}
+[root@localhost nginx]$~ tree conf/
+conf/
+    ├── fastcgi.conf
+    ├── fastcgi.conf.default
+    └── win-utf
+\end{minted}
+%
+指定行高亮
+\begin{minted}[highlightcolor=cyan!40,firstnumber=1,highlightlines={4,8}]{python}
+INSTALLED_APPS = [
+    "django.contrib.admin",
+    "django.contrib.auth",
+    "django.contrib.contenttypes",
+    "django.contrib.sessions",
+    "django.contrib.messages",
+    "django.contrib.staticfiles",
+    'polls.apps.PollsConfig',
+]
+\end{minted}
+
+
+\section{模板使用方法-必要环境}
+
+发行版安装与更新, 本模板测试环境为:Win11 22H2 + TeXLive 2023, 默认编译方式为XeLaTeX,
+由于宏包版本问题，本模板不支持C\TeX{} 套装，请务必安装\TeX Live/Mac\TeX{}。更多关于\TeX{} Live 的安装使
+用以及C\TeX{}与\TeX Live的兼容、系统路径问题，请参考官方文档或啸行大佬的\href{https://github.com/OsbertWang/install-latex-guide-zh-cn/releases/}{一份简短的关于安装\LaTeX{} 安装的介绍}。
+
+此外由于模板使用了minted 宏包, 因此在使用过程中, 必须要安装python, 以及python 的第三方库Pygments.
+并且在编译选项中添加\md{\texttt{-shell-escape}}内容, 才可以进行编译,
+
+或者使用命令行编译:
+\begin{minted}{vim}
+xelatex.exe -shell-escape -synctex=1 -interaction=nonstopmode vividbook.tex
+\end{minted}
