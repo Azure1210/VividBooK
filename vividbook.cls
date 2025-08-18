@@ -1242,7 +1242,8 @@ beforechap\newpage%
 	\setlength\fboxsep{0pt}%
 	\noindent\colorbox{ocre!40}{\strut\parbox[c][.7cm]{1.1cm}{\color{orange}\Large\bfseries\centering#1}}
 \hspace{4pt}
-    \colorbox{ocre!40}{\strut\parbox[c][.7cm]{\linewidth-1.3cm}{\partname\Large\centering 第#1部分 * #2}}}%
+    \colorbox{ocre!40}{\strut\parbox[c][.7cm]{\linewidth-1.3cm}{\partname\Large\centering 
+    #1部分 * #2}}}%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % unnumbered part in the table of contents
 \newcommand{\@myparttocformat}[1]{%
@@ -1299,13 +1300,14 @@ beforechap\newpage%
 	\else
 	\addcontentsline{toc}{part}{#1}%
 	\fi
-	\markboth{}{}%
+%	\markboth{}{}%
+    \vspace*{-2cm}
 	{\ThisCenterWallPaper{1}{\thepartsimage}
 		\centering
 		\interlinepenalty \@M
 		\normalfont
 		\ifnum \c@secnumdepth >-2\relax
-\vskip 2cm	\huge\bfseries 	 \partname  \thepart  \\ 
+	\huge\bfseries 	 \partname  \thepart  \\ 
     \pgfornament[scale=.3]{72}  #2 
         \pgfornament[scale=.3]{73}\\[-5pt]
         \pgfornament[scale=.5]{85} \\
@@ -1332,8 +1334,8 @@ beforechap\newpage%
             }
             ]
            \normalsize
-           \startcontents
-           \printcontents{l}{0}[1]{}
+           {\color{cyan}\startcontents
+           \printcontents{l}{0}[1]{}}
         \end{tcolorbox}
 				%   \thispagestyle{empty}
 	}%
